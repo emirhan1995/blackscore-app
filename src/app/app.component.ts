@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Observable } from "rxjs";
-import { StandingsByLeagueId } from "./core/models";
+import { StandingLeagueId, StandingsByLeagueId } from "./core/models";
 import { DataService } from "./core/services";
 
 @Component({
@@ -10,9 +10,9 @@ import { DataService } from "./core/services";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-
   standings$: Observable<StandingsByLeagueId>;
+
   constructor(private data: DataService) {
-    this.standings$ = this.data.getStandings("39");
+    this.standings$ = this.data.getStandings(StandingLeagueId.ENGLAND_PREMIER_LEAGUE);
   }
 }
