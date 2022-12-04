@@ -1,0 +1,31 @@
+<section class="league-details" *ngIf="standings.response[0].league as details">
+  <img [src]="details.logo" alt="league-logo">
+  <p>{{ details.name }}</p>
+</section>
+<table>
+  <tr>
+    <th class="team-rank"></th>
+    <th class="team-logo"></th>
+    <th class="team-name"></th>
+    <th class="team-played">Sp</th>
+    <th class="team-points">Pkt</th>
+    <th class="team-win">S</th>
+    <th class="team-draw">U</th>
+    <th class="team-lose">N</th>
+    <th class="team-goals-difference">TD</th>
+  </tr>
+
+  <tr *ngFor="let row of standings.response[0].league.standings[0]">
+    <td class="team-rank">{{ row.rank }}.</td>
+    <td class="team-logo">
+      <img [src]="row.team.logo" alt="team-logo"/>
+    </td>
+    <td class="team-name">{{ row.team.name }}</td>
+    <td class="team-played">{{ row.all.played }}</td>
+    <td class="team-points">{{ row.points }}</td>
+    <td class="team-win">{{ row.all.win }}</td>
+    <td class="team-draw">{{ row.all.draw }}</td>
+    <td class="team-lose">{{ row.all.lose }}</td>
+    <td class="team-goals-difference">{{ row.goalsDiff }}</td>
+  </tr>
+</table>
