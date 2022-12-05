@@ -11,27 +11,39 @@
     height: 60px;
     display: flex;
     align-items: center;
-    background-color: #1976d2;
-    color: white;
+    color: var(--blackscore-color-black-2);
     font-weight: 600;
+    margin: 0 20px;
 
-    img {
-      margin: 0 16px;
+    .app-name {
+      font-size: var(--blackscore-font-size-subtitle-2);
+      letter-spacing: 1px;
+
+      span:first-child {
+        color: var(--blackscore-color-black-1);
+      }
+
+      span:last-child {
+        color: var(--blackscore-color-text-1);
+      }
     }
 
     #twitter-logo {
       height: 40px;
-      margin: 0 8px;
+      margin-right: 8px;
     }
 
     #youtube-logo {
       height: 40px;
-      margin: 0 16px;
     }
 
-    #twitter-logo:hover,
-    #youtube-logo:hover {
-      opacity: 0.8;
+    #twitter-logo,
+    #youtube-logo {
+      fill: black;
+
+      &:hover {
+        opacity: 0.8;
+      }
     }
   }
 }
