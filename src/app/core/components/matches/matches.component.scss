@@ -1,0 +1,39 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .league-details {
+    display: flex;
+    gap: 5px;
+    align-self: center;
+  }
+
+  table {
+    font-size: 12px;
+
+    td {
+      padding: 2px 5px;
+    }
+
+    .team-rank {
+      width: 18px;
+      text-align: right;
+    }
+
+    .team-logo {
+      img {
+        vertical-align: middle;
+      }
+    }
+
+    .team-played, .team-points, .team-win, .team-draw, .team-lose, .team-goals-difference {
+      text-align: center;
+    }
+  }
+}

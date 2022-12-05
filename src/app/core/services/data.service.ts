@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable, shareReplay } from "rxjs";
-import { StandingLeagueId, StandingsByLeagueId } from "../models";
+import { IStandingsByLeagueId, IFixturesHeadToHead, StandingLeagueId } from "../models";
 
 @Injectable({
   providedIn: 'root'
@@ -16,13 +16,25 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
-  getStandings(league: StandingLeagueId, season = "2022"): Observable<StandingsByLeagueId> {
+  getStandings(league: StandingLeagueId, season = "2022"): Observable<IStandingsByLeagueId> {
     const url = `${this.RAPID_URL}/standings`;
     const params = { season, league };
     const headers = { ...this.HEADERS_RAPID_KEY };
 
-    return this.http.get<StandingsByLeagueId>(url, { params, headers }).pipe(
+    return this.http.get<IStandingsByLeagueId>(url, { params, headers }).pipe(
       shareReplay(1)
     );
+  }
+
+  getUpcomingMatches(leagueId: StandingLeagueId, currentRound: number): Observable<IFixturesHeadToHead> {
+    const url = `${this.RAPID_URL}/fixtures`;
+    const league = Number(leagueId);
+    const round = `Regular Season - ${currentRound + 1}`;
+    const params = new HttpParams({
+      fromObject: { league, round, season: 2022 }
+    });
+    const headers = { ...this.HEADERS_RAPID_KEY };
+
+    return this.http.get<IFixturesHeadToHead>(url, { params, headers })
   }
 }

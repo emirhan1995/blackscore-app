@@ -1,0 +1,6 @@
+<div *ngFor="let data of matches.response">
+  {{ data.fixture.date | date: "dd.MM.YY" }}
+  <p>
+    {{ data.teams.home.name }} - {{ data.teams.away.name }}
+  </p>
+</div>

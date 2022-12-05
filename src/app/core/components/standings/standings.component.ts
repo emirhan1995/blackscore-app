@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { StandingsByLeagueId } from "../../models";
+import { IStandingsByLeagueId } from "../../models";
 
 @Component({
   selector: 'blackscore-standings',
@@ -9,5 +9,5 @@ import { StandingsByLeagueId } from "../../models";
 })
 export class StandingsComponent {
   @Input()
-  standings!: StandingsByLeagueId;
+  standings!: IStandingsByLeagueId;
 }

@@ -45,7 +45,7 @@ interface StandingsByLeagueId__Response {
   league: StandingsByLeagueId__League;
 }
 
-export interface StandingsByLeagueId {
+export interface IStandingsByLeagueId {
   get: string;
   parameters: Parameter;
   errors: any[];

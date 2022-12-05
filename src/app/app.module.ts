@@ -4,12 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
-import { StandingsComponent } from './core/components';
+import { StandingsComponent, MatchesComponent } from './core/components';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StandingsComponent
+    StandingsComponent,
+    MatchesComponent
   ],
   imports: [
     BrowserModule,
