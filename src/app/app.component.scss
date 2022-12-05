@@ -1,17 +1,14 @@
-.content {
+.content-wrapper {
   display: flex;
   margin: 82px auto 32px;
   padding: 0 16px;
   max-width: 960px;
   align-items: center;
   justify-content: space-evenly;
-}
 
-svg#clouds {
-  position: fixed;
-  bottom: -160px;
-  left: -230px;
-  z-index: -10;
-  width: 1920px;
-  fill: var(--blackscore-color-green-2);
+  router-outlet + * {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
 }
